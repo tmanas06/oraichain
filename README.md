@@ -2,8 +2,9 @@
 Improv
 ## How to Run
 
- Navigate to the `wsite` directory:
+
    ```bash
+   cd web3club
    npm install
    npm run dev
    ```
