@@ -1,7 +1,42 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import cityscape from './cityscape.png'; // Make sure to import the background image
 
 const Home: React.FC = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const teamRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1,
+    };
+
+    const handleFade = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleFade, options);
+
+    if (heroRef.current) observer.observe(heroRef.current);
+    if (aboutRef.current) observer.observe(aboutRef.current);
+    if (teamRef.current) observer.observe(teamRef.current);
+
+    return () => {
+      if (heroRef.current) observer.unobserve(heroRef.current);
+      if (aboutRef.current) observer.unobserve(aboutRef.current);
+      if (teamRef.current) observer.unobserve(teamRef.current);
+    };
+  }, []);
+
   return (
     <div style={styles.container}>
       <nav style={styles.navbar}>
@@ -12,9 +47,23 @@ const Home: React.FC = () => {
         <Link to="/student-projects" style={styles.navLink}>Student Projects</Link>
         <Link to="/mint-nft" style={styles.navLink}>Mint NFT</Link>
       </nav>
-      <div style={styles.content}>
-        <h1>Welcome to the KLH University Web3 Club</h1>
-        <p>Learn and explore Web3 technologies with us.</p>
+      <div ref={heroRef} style={styles.heroSection}>
+        <div style={styles.arrowContainer}>
+          <div style={styles.arrow}>»»</div>
+        </div>
+      </div>
+      <div ref={aboutRef} style={styles.section}>
+        <h2>About Us</h2>
+        <p>
+          The KLH University Web3 Club is dedicated to exploring the latest in Web3 technologies.
+          Our mission is to educate and inspire students to innovate using blockchain and decentralized technologies.
+        </p>
+      </div>
+      <div ref={teamRef} style={styles.section}>
+        <h2>Our Team</h2>
+        <p>
+          Our team consists of passionate students and faculty advisors who are enthusiastic about blockchain, cryptocurrencies, and decentralized applications. Together, we aim to build a strong Web3 community.
+        </p>
       </div>
     </div>
   );
@@ -41,7 +90,6 @@ const styles = {
   container: {
     backgroundColor: '#121212',
     color: '#ffffff',
-    minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
     fontFamily: 'Arial, sans-serif',
@@ -61,10 +109,34 @@ const styles = {
     textDecoration: 'none',
     fontSize: '1rem',
   } as React.CSSProperties,
-  content: {
+  heroSection: {
+    position: 'relative',
+    height: '100vh',
+    backgroundImage: `url(${cityscape})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    opacity: 0,
+    transition: 'opacity 1s ease-in-out',
+  } as React.CSSProperties,
+  arrowContainer: {
+    position: 'absolute',
+    bottom: '240px',
+    left: '50%',
+    transform: 'translateX(-50%) rotate(90deg)', // Rotate the arrows
+  } as React.CSSProperties,
+  arrow: {
+    color: '#ccff33', // Neon lime yellow color
+    fontSize: '3rem',
+    animation: 'floatUpDown 2s infinite',
+  } as React.CSSProperties,
+  section: {
     padding: '2rem',
     textAlign: 'center',
-    flex: 1,
+    opacity: 0,
+    transition: 'opacity 1s ease-in-out',
+  } as React.CSSProperties,
+  visible: {
+    opacity: 1,
   } as React.CSSProperties,
 };
 
@@ -87,6 +159,18 @@ globalStyles.innerHTML = `
     flex-direction: column;
     min-height: 100vh;
   }
+  .visible {
+    opacity: 1 !important;
+  }
+  @keyframes floatUpDown {
+   
+      0% { transform: translateX(0); }
+      50% { transform: translateX(-10px); }
+      100% { transform: translateX(0); }
+    }
+
+  }
+  
 `;
 document.head.appendChild(globalStyles);
 
