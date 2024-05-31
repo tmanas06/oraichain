@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import cityscape from './cityscape.png'; // Make sure to import the background image
+import logo from './logo.png'; // Import your logo image
 
 const Home: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -40,7 +41,9 @@ const Home: React.FC = () => {
   return (
     <div style={styles.container}>
       <nav style={styles.navbar}>
-        <Link to="/" style={styles.navLink}>Home</Link>
+        <Link to="/">
+          <img src={logo} alt="Logo" style={styles.logo} />
+        </Link>
         <Link to="/blog" style={styles.navLink}>Blog</Link>
         <Link to="/projects" style={styles.navLink}>Projects</Link>
         <Link to="/submit-project" style={styles.navLink}>Submit Project</Link>
@@ -96,10 +99,10 @@ const styles = {
   } as React.CSSProperties,
   navbar: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between', // Adjusted for logo placement
+    alignItems: 'center', // Center vertically
     padding: '1rem',
-    backgroundColor: '#1e1e1e',
-    borderBottom: '1px solid #333',
+    backgroundColor: '#000000', // Black background
     position: 'sticky',
     top: 0,
     zIndex: 1000,
@@ -108,6 +111,12 @@ const styles = {
     color: '#ffffff',
     textDecoration: 'none',
     fontSize: '1rem',
+    marginLeft: '1rem', // Add some space between links
+  } as React.CSSProperties,
+  logo: {
+    width: '5cm', // Width of 2cm
+    height: '2cm', // Height of 2cm
+    marginLeft: '1rem', // Adjusted for spacing
   } as React.CSSProperties,
   heroSection: {
     position: 'relative',
@@ -127,7 +136,8 @@ const styles = {
   arrow: {
     color: '#ccff33', // Neon lime yellow color
     fontSize: '3rem',
-    animation: 'floatUpDown 2s infinite',
+    animation: 'floatUpDown 2s infinite'
+    ,
   } as React.CSSProperties,
   section: {
     padding: '2rem',
@@ -163,14 +173,10 @@ globalStyles.innerHTML = `
     opacity: 1 !important;
   }
   @keyframes floatUpDown {
-   
-      0% { transform: translateX(0); }
-      50% { transform: translateX(-10px); }
-      100% { transform: translateX(0); }
-    }
-
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
   }
-  
 `;
 document.head.appendChild(globalStyles);
 
