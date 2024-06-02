@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import backImage from './back.png'; // Import the back image
 
 interface BlogPost {
@@ -23,6 +23,13 @@ const Blog: React.FC = () => {
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css?family=Audiowide';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+  }, []);
 
   return (
     <div style={styles.container}>
@@ -82,6 +89,7 @@ const styles = {
     gap: '1rem',
   } as React.CSSProperties,
   card: {
+    height: '350px',
     textDecoration: 'none',
     color: '#ffffff',
     border: '1px solid #333',

@@ -4,12 +4,18 @@ import cityscape from './cityscape.png'; // Make sure to import the background i
 import logo from './logo.png'; // Import your logo image
 import bgdao from './bgdao.jpg'; // Import the background image for the About Us section
 import teambg from './teambg.jpg'; // Import the background image for the Our Team section
+
 const Home: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const teamRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css?family=Audiowide';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+
     const options = {
       root: null,
       rootMargin: '0px',
@@ -45,10 +51,10 @@ const Home: React.FC = () => {
         <Link to="/">
           <img src={logo} alt="Logo" style={styles.logo} />
         </Link>
-        <Link to="/blog" style={styles.navLink}>Blog</Link>
-        <Link to="/events-calendar" style={styles.navLink}>Events Calendar</Link>
-        <Link to="/project-showcase" style={styles.navLink}>Project Showcase</Link>
-        <Link to="/mint-nft" style={styles.navLink}>Mint NFT</Link>
+        <Link to="/blog" style={styles.navLink} className="nav-link">Blog</Link>
+        <Link to="/events-calendar" style={styles.navLink} className="nav-link">Events Calendar</Link>
+        <Link to="/project-showcase" style={styles.navLink} className="nav-link">Project Showcase</Link>
+        <Link to="/mint-nft" style={styles.navLink} className="nav-link">Mint NFT</Link>
       </nav>
       <div ref={heroRef} style={styles.heroSection}>
         <div style={styles.arrowContainer}>
@@ -101,6 +107,7 @@ const styles = {
     textDecoration: 'none',
     fontSize: '1rem',
     marginLeft: '1rem', // Add some space between links
+    transition: 'color 0.3s ease-in-out', // Add transition for smooth color change
   } as React.CSSProperties,
   logo: {
     width: '5cm', // Width of 2cm
@@ -137,7 +144,6 @@ const styles = {
     opacity: 0,
     transition: 'opacity 1s ease-in-out',
   } as React.CSSProperties,
-  
   visible: {
     opacity: 1,
   } as React.CSSProperties,
@@ -164,6 +170,9 @@ globalStyles.innerHTML = `
   }
   .visible {
     opacity: 1 !important;
+  }
+  .nav-link:hover {
+    color: #cafc5d !important;
   }
   @keyframes floatUpDown {
     0% { transform: translateX(0); }
