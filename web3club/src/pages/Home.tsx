@@ -4,6 +4,14 @@ import cityscape from './cityscape.png'; // Make sure to import the background i
 import logo from './logo.png'; // Import your logo image
 import bgdao from './bgdao.jpg'; // Import the background image for the About Us section
 import teambg from './teambg.jpg'; // Import the background image for the Our Team section
+import mediumIcon from './medium.svg'; // Import the Medium icon image
+import instagramIcon from './instagram.svg'; // Import the Instagram icon image
+import linkedinIcon from './linkedin.svg';
+import telegramIcon from './telegram.svg';
+import githubIcon from './github.svg';
+import twitterIcon from './twitter.svg';
+import discordIcon from './discord.svg';
+import gmailIcon from './gmail.svg';
 
 const Home: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -74,11 +82,38 @@ const Home: React.FC = () => {
           Our team consists of passionate students who are enthusiastic about blockchain, cryptocurrencies, and decentralized applications. Together, we aim to build a strong Web3 community.
         </p>
       </div>
+      <div style={styles.socialLinks}>
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
+          <img src={discordIcon} alt="Discord" style={styles.icon} className="social-icon" />
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <img src={linkedinIcon} alt="LinkedIn" style={styles.icon} className="social-icon" />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <img src={twitterIcon} alt="Twitter" style={styles.icon} className="social-icon" />
+        </a>
+        <a href="https://medium.com" target="_blank" rel="noopener noreferrer">
+          <img src={mediumIcon} alt="Medium" style={styles.icon} className="social-icon" />
+        </a>
+        <a href="mailto:example@gmail.com">
+          <img src={gmailIcon} alt="Gmail" style={styles.icon} className="social-icon" />
+        </a>
+        <a href="https://github.com/">
+          <img src={githubIcon} alt="GitHub" style={styles.icon} className="social-icon" />
+        </a>
+        <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+          <img src={telegramIcon} alt="Telegram" style={styles.icon} className="social-icon" />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <img src={instagramIcon} alt="Instagram" style={styles.icon} className="social-icon" />
+        </a>
+      </div>
     </div>
   );
 };
 
 const styles = {
+ 
   // CSS Reset
   '*': {
     margin: 0,
@@ -147,6 +182,18 @@ const styles = {
   visible: {
     opacity: 1,
   } as React.CSSProperties,
+  socialLinks: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '2rem',
+  } as React.CSSProperties,
+  icon: {
+    width: '3rem', // Adjust as needed
+    height: '3rem', // Adjust as needed
+    margin: '0 1rem', // Adjust as needed
+    transition: 'transform 0.3s ease-in-out', // Add transition for smooth icon enlargement on hover
+  } as React.CSSProperties,
 };
 
 // Apply the styles globally
@@ -173,6 +220,9 @@ globalStyles.innerHTML = `
   }
   .nav-link:hover {
     color: #cafc5d !important;
+  }
+  .social-icon:hover {
+    transform: scale(1.2); // Enlarge the icon on hover
   }
   @keyframes floatUpDown {
     0% { transform: translateX(0); }
