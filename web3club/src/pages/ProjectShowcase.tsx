@@ -114,7 +114,7 @@ const styles = {
     display: 'block',
     marginBottom: '1rem',
     padding: '1rem',
-    backgroundImage: 'linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%)',
+    backgroundImage: 'linear-gradient(-20deg, #92fe9d 0%, #00c9ff 100%)',
     color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',

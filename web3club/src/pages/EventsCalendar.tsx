@@ -111,7 +111,7 @@ const EventsCalendar: React.FC = () => {
             <button
   style={styles.button}
   onClick={() => window.location.href = event.link}
-  onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundImage = 'linear-gradient(to right, #21d4fd 0%, #b721ff 100%)'}
+  onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundImage = 'linear-gradient(to right, #00c9ff 0%, #92fe9d 100%)'}
   onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundImage = 'linear-gradient(to right, #b721ff 0%, #21d4fd 100%)'}
 >
   View Details
@@ -198,7 +198,7 @@ const styles = {
   button: {
     fontFamily: "'Audiowide', sans-serif", // Apply the same font family to buttons
     color: '#fff',
-    backgroundImage: 'linear-gradient(to right, #92fe9d 0%, #00c9ff 100%)', // Define linear gradient background
+    backgroundImage: 'linear-gradient(to right, #b721ff 0%, #21d4fd 100%)', // Define linear gradient background
     border: 'none',
     padding: '10px 20px',
     borderRadius: '5px',
