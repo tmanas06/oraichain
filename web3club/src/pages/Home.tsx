@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import cityscape from './cityscape.png'; // Make sure to import the background image
 import logo from './logo.png'; // Import your logo image
-
+import bgdao from './bgdao.jpg'; // Import the background image for the About Us section
+import teambg from './teambg.jpg'; // Import the background image for the Our Team section
 const Home: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -45,9 +46,8 @@ const Home: React.FC = () => {
           <img src={logo} alt="Logo" style={styles.logo} />
         </Link>
         <Link to="/blog" style={styles.navLink}>Blog</Link>
-        <Link to="/projects" style={styles.navLink}>Projects</Link>
-        <Link to="/submit-project" style={styles.navLink}>Submit Project</Link>
-        <Link to="/student-projects" style={styles.navLink}>Student Projects</Link>
+        <Link to="/events-calendar" style={styles.navLink}>Events Calendar</Link>
+        <Link to="/project-showcase" style={styles.navLink}>Project Showcase</Link>
         <Link to="/mint-nft" style={styles.navLink}>Mint NFT</Link>
       </nav>
       <div ref={heroRef} style={styles.heroSection}>
@@ -55,17 +55,17 @@ const Home: React.FC = () => {
           <div style={styles.arrow}>»»</div>
         </div>
       </div>
-      <div ref={aboutRef} style={styles.section}>
+      <div ref={aboutRef} style={{ ...styles.section, backgroundImage: `url(${bgdao})` }}>
         <h2>About Us</h2>
         <p>
           The KLH University Web3 Club is dedicated to exploring the latest in Web3 technologies.
           Our mission is to educate and inspire students to innovate using blockchain and decentralized technologies.
         </p>
       </div>
-      <div ref={teamRef} style={styles.section}>
+      <div ref={teamRef} style={{ ...styles.section, backgroundImage: `url(${teambg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <h2>Our Team</h2>
         <p>
-          Our team consists of passionate students and faculty advisors who are enthusiastic about blockchain, cryptocurrencies, and decentralized applications. Together, we aim to build a strong Web3 community.
+          Our team consists of passionate students who are enthusiastic about blockchain, cryptocurrencies, and decentralized applications. Together, we aim to build a strong Web3 community.
         </p>
       </div>
     </div>
@@ -79,23 +79,12 @@ const styles = {
     padding: 0,
     boxSizing: 'border-box',
   } as React.CSSProperties,
-  body: {
-    backgroundColor: '#121212',
-    color: '#ffffff',
-    fontFamily: 'Arial, sans-serif',
-    minHeight: '100vh',
-  } as React.CSSProperties,
-  '#root': {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh',
-  } as React.CSSProperties,
   container: {
     backgroundColor: '#121212',
     color: '#ffffff',
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: 'Arial, sans-serif',
+    fontFamily: "'Audiowide', sans-serif", // Apply Audiowide font to all text
   } as React.CSSProperties,
   navbar: {
     display: 'flex',
@@ -136,15 +125,19 @@ const styles = {
   arrow: {
     color: '#ccff33', // Neon lime yellow color
     fontSize: '3rem',
-    animation: 'floatUpDown 2s infinite'
-    ,
+    animation: 'floatUpDown 2s infinite',
   } as React.CSSProperties,
   section: {
-    padding: '2rem',
+    height: '100vh', // Set height to 100% of viewport height
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     textAlign: 'center',
     opacity: 0,
     transition: 'opacity 1s ease-in-out',
   } as React.CSSProperties,
+  
   visible: {
     opacity: 1,
   } as React.CSSProperties,
@@ -161,7 +154,7 @@ globalStyles.innerHTML = `
   body {
     background-color: #121212;
     color: #ffffff;
-    font-family: Arial, sans-serif;
+    font-family: 'Audiowide', sans-serif;
     min-height: 100vh;
   }
   #root {
