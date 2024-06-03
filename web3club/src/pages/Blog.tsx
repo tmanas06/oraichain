@@ -12,12 +12,12 @@ const Blog: React.FC = () => {
     {
       title: 'Intro to Web3',
       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP4Bc0-q9wQ3EbckyqzhGyH2r-6QegBGTQ5iPZkWRIXZ3zwJTjJCqb5A_3wE3iy9bBi1w&usqp=CAU',
-      link: 'https://example.com/intro-to-web3',
+      link: 'https://medium.com/@paul.simroth/what-is-web3-an-introduction-for-newcomers-f6619afbe6c3',
     },
     {
       title: 'Understanding Blockchain',
       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0yuSTo19yVXs89SBdqgPeILv8gIT9PA47kg&s',
-      link: 'https://example.com/understanding-blockchain',
+      link: 'https://medium.com/qanplatform/blockchain-101-everything-you-need-to-know-about-blockchain-basics-2514213f6e9e',
     },
     // Add more posts as needed
   ];

@@ -14,31 +14,31 @@ const EventsCalendar: React.FC = () => {
   const events = [
     {
       id: 1,
-      title: "Event 1",
-      imageUrl: "https://via.placeholder.com/150",
+      title: "ODHACKS India Edition",
+      imageUrl: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=75,width=300,height=300/event-covers/71/3eb408b7-4aa8-40c7-be8c-4c7f3e9b4cb8",
       description: "Description for Event 1",
-      link: "https://example.com/event1"
+      link: "https://lu.ma/ODHacks"
     },
     {
       id: 2,
-      title: "Event 2",
-      imageUrl: "https://via.placeholder.com/150",
+      title: "Arweave demo day",
+      imageUrl: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=75,width=300,height=300/event-covers/yd/b027ac16-9e7f-4ac5-bf3e-415fb6d196ae",
       description: "Description for Event 2",
-      link: "https://example.com/event2"
+      link: "https://lu.ma/07b0wp3s?tk=INXFmr"
     },
     {
       id: 3,
-      title: "Event 3",
-      imageUrl: "https://via.placeholder.com/150",
+      title: "Founder House",
+      imageUrl: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=75,width=300,height=300/event-covers/04/b9900b6b-aeec-41c8-8edc-7583909dc640",
       description: "Description for Event 3",
-      link: "https://example.com/event3"
+      link: "https://lu.ma/flry3jy2"
     },
     {
       id: 4,
       title: "Event 4",
-      imageUrl: "https://via.placeholder.com/150",
+      imageUrl: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=75,width=300,height=300/event-covers/zi/fe88a900-20b4-4178-ac45-8a02f940731f",
       description: "Description for Event 4",
-      link: "https://example.com/event4"
+      link: "https://lu.ma/mc7dyh9d?utm_source=web3Events"
     }
   ];
 
