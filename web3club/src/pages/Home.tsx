@@ -62,6 +62,7 @@ const Home: React.FC = () => {
         <Link to="/blog" style={styles.navLink} className="nav-link">Blog</Link>
         <Link to="/events-calendar" style={styles.navLink} className="nav-link">Events Calendar</Link>
         <Link to="/project-showcase" style={styles.navLink} className="nav-link">Project Showcase</Link>
+        <Link to="/news" style={styles.navLink} className="nav-link">News</Link>
         <Link to="/mint-nft" style={styles.navLink} className="nav-link">Mint NFT</Link>
       </nav>
       <div ref={heroRef} style={styles.heroSection}>
