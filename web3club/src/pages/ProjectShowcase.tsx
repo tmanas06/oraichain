@@ -102,7 +102,7 @@ const styles = {
     fontFamily: "'Audiowide', sans-serif", // Apply the Audiowide font to the entire container
   }),
   heading: css({
-    fontSize: '5rem', // Bigger font size
+    fontSize: '6rem', // Bigger font size
     marginBottom: '1.5rem',
     textAlign: 'center',
     color: '#7900f2', // Neon burple color
