@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import backImage from './back.png'; // Import the back image
+import './backbutton.css'; // Import the CSS file
 
 interface BlogPost {
   title: string;
@@ -56,14 +56,14 @@ const Blog: React.FC = () => {
 
   return (
     <div style={styles.container}>
-      <img 
-        src={backImage} 
-        alt="Back" 
-        style={{...styles.backButton, transform: hoveredIndex === -1 ? 'scale(1.2)' : 'scale(1)'}} 
+      <button 
+        className="btn" 
         onMouseEnter={() => setHoveredIndex(-1)} 
         onMouseLeave={() => setHoveredIndex(null)} 
-        onClick={() => window.history.back()} 
-      />
+        onClick={() => window.history.back()}
+      >
+        Back
+      </button>
       <h1 style={{ ...styles.header, fontFamily: "'Audiowide', sans-serif" }}>Blogs</h1>
       <div style={styles.list}>
         {blogPosts.map((post, index) => (
@@ -100,13 +100,6 @@ const styles = {
     backgroundColor: '#121212',
     color: '#ffffff',
     fontFamily: "'Audiowide', sans-serif",
-  } as React.CSSProperties,
-  backButton: {
-    width: '70px',
-    height: '70px',
-    cursor: 'pointer',
-    marginBottom: '1rem',
-    transition: 'transform 0.3s ease-in-out',
   } as React.CSSProperties,
   header: {
     textAlign: 'center',

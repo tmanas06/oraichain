@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import backImage from './back.png'; // Import the back image
+import './backbutton.css'; // Import the CSS file for the back button
 import bgImage from './bgcal.jpeg'; // Import the background image
 
 const EventsCalendar: React.FC = () => {
@@ -77,21 +77,20 @@ const EventsCalendar: React.FC = () => {
   };
 
   // State for managing hover effect on back button
-  const [isHovered, setIsHovered] = useState(false);
+  const [, setIsHovered] = useState(false);
 
   return (
     <div style={styles.container}>
-      <img
-        src={backImage}
-        alt="Back"
-        style={{
-          ...styles.backButton,
-          transform: isHovered ? 'scale(1.2)' : 'scale(1)'
-        }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onClick={handleGoBack}
-      />
+     <button
+  className="btn" 
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+  onClick={handleGoBack}
+  style={styles.backButton} // Adjusted to remove transform property
+>
+  Back
+</button>
+
       <h1 style={styles.heading}>Events Calendar</h1>
       {events.map((event, index) => (
         <div
@@ -109,14 +108,13 @@ const EventsCalendar: React.FC = () => {
             <h2 style={styles.eventTitle}>{event.title}</h2>
             <p style={styles.eventDescription}>{event.description}</p>
             <button
-  style={styles.button}
-  onClick={() => window.location.href = event.link}
-  onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundImage = 'linear-gradient(to right, #00c9ff 0%, #92fe9d 100%)'}
-  onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundImage = 'linear-gradient(to right, #b721ff 0%, #21d4fd 100%)'}
->
-  View Details
-</button>
-
+              style={styles.button}
+              onClick={() => window.location.href = event.link}
+              onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundImage = 'linear-gradient(to right, #00c9ff 0%, #92fe9d 100%)'}
+              onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundImage = 'linear-gradient(to right, #b721ff 0%, #21d4fd 100%)'}
+            >
+              View Details
+            </button>
           </div>
         </div>
       ))}
@@ -139,13 +137,11 @@ const styles = {
   } as React.CSSProperties,
   backButton: {
     position: 'absolute',
-    top: '70px',
-    left: '70px',
-    width: '70px',
-    height: '70px',
+    top: '20px', // Adjusted position
+    left: '20px', // Adjusted position
     cursor: 'pointer',
-    transition: 'transform 0.3s ease-in-out', // Add transition for smooth effect
   } as React.CSSProperties,
+  
   heading: {
     marginBottom: '20px',
     fontSize: '3cm',
